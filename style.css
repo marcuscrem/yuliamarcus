@@ -552,3 +552,101 @@ body {
         border: 1px solid #ddd;
     }
 }
+
+/* ===== ESTILOS PARA LAS TARJETAS DE UBICACIONES ===== */
+.locations-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.location-card {
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.ceremony {
+    border-top: 4px solid #4a90e2;
+}
+
+.celebration {
+    border-top: 4px solid #7ed321;
+}
+
+.icon {
+    margin-bottom: 15px;
+}
+
+.icon svg {
+    width: 40px;
+    height: 40px;
+    color: #4a90e2;
+}
+
+.celebration .icon svg {
+    color: #7ed321;
+}
+
+h3 {
+    color: #2c3e50;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+p {
+    color: #7f8c8d;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.location-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin: 15px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.address {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.95em;
+    color: #2c3e50;
+    line-height: 1.5;
+}
+
+.info-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-banner {
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+    color: #006064;
+    text-align: center;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 0.95em;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+    .locations-container {
+        flex-direction: column;
+    }
+    .info-separator {
+        margin: 20px 0;
+    }
+}
