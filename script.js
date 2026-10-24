@@ -1,8 +1,104 @@
 /**
  * Save the Date - Yulia & Marcus
- * Countdown Timer Script
+ * Countdown Timer Script + Traducciones
  */
 
+// ===== TRADUCCIONES =====
+const translations = {
+    es: {
+        "pretitle": "Tenemos el honor de invitarte a",
+        "subtitle": "Nuestro día más especial",
+        "countdown": "Cuenta regresiva",
+        "days": "Días",
+        "hours": "Horas",
+        "minutes": "Minutos",
+        "seconds": "Segundos",
+        "date": "4 de Septiembre de 2027",
+        "ceremony.title": "CEREMONIA",
+        "celebration.title": "CELEBRACIÓN",
+        "address": "Dirección:",
+        "info": "ℹ️ Más información vendrá en la invitación formal",
+        "love": "Con amor desde Alicante y Galicia 🌊🌿",
+        "bigday": "¡Es el gran día! 💍",
+        "page.title": "¡Save the Date! | Yulia & Marcus"
+    },
+    en: {
+        "pretitle": "We have the honor of inviting you to",
+        "subtitle": "Our most special day",
+        "countdown": "Countdown",
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "seconds": "Seconds",
+        "date": "September 4th, 2027",
+        "ceremony.title": "CEREMONY",
+        "celebration.title": "CELEBRATION",
+        "address": "Address:",
+        "info": "ℹ️ More information will follow with the formal invitation",
+        "love": "With love from Alicante and Galicia 🌊🌿",
+        "bigday": "It's the big day! 💍",
+        "page.title": "Save the Date! | Yulia & Marcus"
+    },
+    de: {
+        "pretitle": "Wir haben die Ehre, dich einzuladen zur Hochzeit von",
+        "subtitle": "Unser ganz besonderer Tag",
+        "countdown": "Countdown",
+        "days": "Tage",
+        "hours": "Stunden",
+        "minutes": "Minuten",
+        "seconds": "Sekunden",
+        "date": "4. September 2027",
+        "ceremony.title": "TRAUUNG",
+        "celebration.title": "FEIER",
+        "address": "Adresse:",
+        "info": "ℹ️ Weitere Informationen folgen mit der offiziellen Einladung",
+        "love": "Mit Liebe aus Alicante und Galicien 🌊🌿",
+        "bigday": "Es ist der große Tag! 💍",
+        "page.title": "Save the Date! | Yulia & Marcus"
+    }
+};
+
+// Idioma actual (accesible desde el countdown)
+let currentLang = 'es';
+
+function setLanguage(lang) {
+    currentLang = lang;
+
+    // Cambiar todos los textos marcados
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+
+    // Cambiar idioma del documento y título de la pestaña
+    document.documentElement.lang = lang;
+    document.title = translations[lang]["page.title"];
+
+    // Guardar la elección
+    localStorage.setItem('lang', lang);
+
+    // Marcar el botón activo
+    document.querySelectorAll('.lang-switcher button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+}
+
+function initLanguage() {
+    // Eventos de los botones
+    document.querySelectorAll('.lang-switcher button').forEach(btn => {
+        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+
+    // Usar idioma guardado, o detectar el del navegador
+    const savedLang = localStorage.getItem('lang');
+    const browserLang = navigator.language.slice(0, 2);
+    const initialLang = savedLang || (['es', 'en', 'de'].includes(browserLang) ? browserLang : 'es');
+    setLanguage(initialLang);
+}
+
+// ===== COUNTDOWN =====
 (function() {
     'use strict';
 
@@ -39,11 +135,12 @@
             hoursEl.textContent = '00';
             minutesEl.textContent = '00';
             secondsEl.textContent = '00';
-            
+
             const countdownSection = document.querySelector('.countdown-section');
             const label = countdownSection.querySelector('.countdown-label');
-            label.textContent = '¡Es el gran día! 💍';
-            
+            label.removeAttribute('data-i18n'); // evita que la traducción lo pise
+            label.textContent = translations[currentLang]["bigday"];
+
             return;
         }
 
@@ -79,10 +176,8 @@
 
     // Inicializar el countdown
     function init() {
-        // Actualización inmediata
+        initLanguage();
         updateCountdown();
-        
-        // Actualizar cada segundo
         setInterval(updateCountdown, 1000);
     }
 
