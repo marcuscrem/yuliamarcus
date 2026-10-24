@@ -12,112 +12,115 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
 </head>
 <body>
+      <div class="lang-switcher">
+        <button data-lang="es" class="active">ES</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="de">DE</button>
+    </div>
+
+    <div class="hero-bg"></div>
     <div class="hero-bg"></div>
     <div class="overlay"></div>
     <div class="grain"></div>
     
-    <main class="container">
-        <div class="content">
-            <header class="header">
-                <p class="pre-title">Tenemos el honor de invitarte a</p>
-                <h1 class="names">Yulia <span class="names">&</span> Marcus</h1>
-                <p class="subtitle">Nuestro día más especial</p>
-            </header>
+  <main class="container">
+    <div class="content">
+        <header class="header">
+            <p class="pre-title" data-i18n="pretitle">Tenemos el honor de invitarte a</p>
+            <h1 class="names">Yulia <span class="names">&</span> Marcus</h1>
+            <p class="subtitle" data-i18n="subtitle">Nuestro día más especial</p>
+        </header>
 
-            <section class="countdown-section">
-                <p class="countdown-label">Cuenta regresiva</p>
-                <div class="countdown">
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="days">000</span>
-                        <span class="countdown-text">Días</span>
+        <section class="countdown-section">
+            <p class="countdown-label" data-i18n="countdown">Cuenta regresiva</p>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">000</span>
+                    <span class="countdown-text" data-i18n="days">Días</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-text" data-i18n="hours">Horas</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-text" data-i18n="minutes">Minutos</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-text" data-i18n="seconds">Segundos</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="details">
+            <div class="date-highlight">
+                <svg class="calendar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="4" width="18" height="18" rx="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                    <circle cx="12" cy="15" r="1.5"/>
+                </svg>
+                <span class="date-text" data-i18n="date">4 de Septiembre de 2027</span>
+            </div>
+
+            <div class="locations-container">
+                <!-- Ceremonia -->
+                <div class="location-card ceremony">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                            <circle cx="12" cy="9" r="2.5"/>
+                        </svg>
                     </div>
-                    <div class="countdown-separator">:</div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="hours">00</span>
-                        <span class="countdown-text">Horas</span>
-                    </div>
-                    <div class="countdown-separator">:</div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="minutes">00</span>
-                        <span class="countdown-text">Minutos</span>
-                    </div>
-                    <div class="countdown-separator">:</div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="seconds">00</span>
-                        <span class="countdown-text">Segundos</span>
+                    <h3 data-i18n="ceremony.title">CEREMONIA</h3>
+                    <p>Iglesia de Santa Faz</p>
+
+                    <div class="address">
+                        <strong data-i18n="address">Dirección:</strong><br>
+                        Plaza Luis Foglietti, s/n<br>
+                        Santa Faz, Alicante
                     </div>
                 </div>
-            </section>
 
-            <section class="details">
-                <div class="date-highlight">
-                    <svg class="calendar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="3" y="4" width="18" height="18" rx="2"/>
-                        <line x1="16" y1="2" x2="16" y2="6"/>
-                        <line x1="8" y1="2" x2="8" y2="6"/>
-                        <line x1="3" y1="10" x2="21" y2="10"/>
-                        <circle cx="12" cy="15" r="1.5"/>
-                    </svg>
-                    <span class="date-text">4 de Septiembre de 2027</span>
+                <!-- Separador -->
+                <div class="info-separator">
+                    <div class="info-banner">
+                        <span data-i18n="info">ℹ️ Más información vendrá en la invitación formal</span>
+                    </div>
                 </div>
-<div class="locations-container">
-    <!-- Ceremonia -->
-    <div class="location-card ceremony">
-        <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-                <circle cx="12" cy="9" r="2.5"/>
-            </svg>
-        </div>
-        <h3>CEREMONIA</h3>
-        <p>Iglesia de Santa Faz</p>
 
-        
+                <!-- Celebración -->
+                <div class="location-card celebration">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                            <circle cx="12" cy="9" r="2.5"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="celebration.title">CELEBRACIÓN</h3>
+                    <p>Finca Torreta de Bayona</p>
 
-        <div class="address">
-            <strong>Dirección:</strong><br>
-            Plaza Luis Foglietti, s/n<br>
-            Santa Faz, Alicante
-        </div>
+                    <div class="address">
+                        <strong data-i18n="address">Dirección:</strong><br>
+                        Pujada Borratxina, 45<br>
+                        Mutxamel, Alicante
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p class="hashtag">#YuliaYMarcus2027</p>
+            <div class="decorative-line"></div>
+            <p class="love-note" data-i18n="love">Con amor desde Alicante y Galicia 🌊🌿</p>
+        </footer>
     </div>
-
-    <!-- Separador con el recuadro de información -->
-    <div class="info-separator">
-        <div class="info-banner">
-            <span>ℹ️ Más información vendrá en la invitación formal</span>
-        </div>
-    </div>
-
-    <!-- Celebración -->
-    <div class="location-card celebration">
-        <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-                <circle cx="12" cy="9" r="2.5"/>
-            </svg>
-        </div>
-        <h3>CELEBRACIÓN</h3>
-        <p>Finca Torreta de Bayona</p>
-
-  
-
-        <div class="address">
-            <strong>Dirección:</strong><br>
-            Pujada Borratxina, 45<br>
-            Mutxamel, Alicante
-        </div>
-    </div>
-</div>
-
-          
-
-            <footer class="footer">
-                <p class="hashtag">#YuliaYMarcus2027</p>
-                <div class="decorative-line"></div>
-                <p class="love-note">Con amor desde Alicante y Galicia 🌊🌿</p>
-            </footer>
-        </div>
-    </main>
+</main>
 
     <script src="script.js"></script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5"}' crossorigin="anonymous"></script>
